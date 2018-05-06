@@ -17,14 +17,14 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
-    domainWhiteList: ['http://localhost:7001', 'http://localhost:4200'],
+    domainWhiteList: ['http://localhost:7001', 'http://localhost:4200','http://localhost:8100'],
   };
 
   // Content to mongoose
   config.mongoose = {
     client: {
-      //url: 'mongodb://localhost/eggshop',
-      url: 'mongodb://zgkdzjj:ZJJ052834@ds161459.mlab.com:61459/zgkdzjjeshop',
+      url: 'mongodb://localhost/eggshop',
+      // url: 'mongodb://secret@ds161459.mlab.com:61459/zgkdzjjeshop',
       options: {},
     },
   };
@@ -45,7 +45,7 @@ module.exports = appInfo => {
   config.oss = {
     client: {
       accessKeyId: 'secret',
-      accessKeySecret: 'secret',
+      accessKeySecret: 'sercet',
       bucket: 'zgkdzjjeshoppub',
       endpoint: 'oss-ap-southeast-2.aliyuncs.com',
       timeout: '60s',

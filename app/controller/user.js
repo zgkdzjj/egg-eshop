@@ -6,7 +6,7 @@ class UserController extends Controller {
     constructor(ctx) {
         super(ctx);
         this.UserCreateTransfer = {
-            // username, password, email, mobile
+            // username, password, email, mobile, role
             username: { type: 'string', required: true, allowEmpty: false },
             password: { type: 'string', required: true, allowEmpty: false, min: 6},
             email: { type: 'string', required: true, allowEmpty: false },
@@ -52,7 +52,7 @@ class UserController extends Controller {
         ctx.helper.success({ctx, res});
     }
 
-    // Get A User
+    // Get A User by id
     async show(){
         console.log('Show called');
         const { ctx, service } = this;
@@ -64,12 +64,13 @@ class UserController extends Controller {
     async index(){
         console.log('Index called');
         const { ctx, service } = this;
-        const payload = ctx.query;
+        const payload = ctx.query || {};
+        // console.log('payload => ' + JSON.stringify(payload, null, 4));
         const res = await service.user.index(payload);
         ctx.helper.success({ctx, res});
     }
 
-    // Delete Users By id[]
+    // Delete Users By id[] (optional)
     async removes() {
         console.log('Removes called');
         const { ctx, service } = this;
@@ -78,6 +79,14 @@ class UserController extends Controller {
         console.log('payload => ' + payload);
         const res = await service.user.removes(payload);
         ctx.helper.success({ctx});
+    }
+
+    // Search User
+    async search() {
+        console.log('search called');
+        const { ctx, service } = this;
+        const query = ctx.query;
+        console.log('query => ' + query);
     }
 }
 

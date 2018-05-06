@@ -1,5 +1,3 @@
-
-
 'use strict'
 // app/controller.brand.js
 const fs = require('fs');
@@ -157,3 +155,6 @@ class BrandController extends Controller {
 }
 
 module.exports = BrandController;
+
+
+// {"name": "size","value": ['s1','s2','s3']}         

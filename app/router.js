@@ -13,9 +13,12 @@ module.exports = app => {
   router.resources('categories', '/api/categories', controller.categories);
   router.delete('/api/categories', controller.categories.destroy);
   // // router.get()
-  router.delete('/api/user',controller.user.removes);
+  //router.delete('/api/user',controller.user.removes);
+
+  // User - Create, Read, Update and Delete
   router.resources('user','/api/user', controller.user);
-  router.get('/api/user',controller.user.index);
+  //router.get('/api/usersearch',controller.user.search);
+  
   // userAccess
   router.post('/api/user/access/login', controller.userAccess.login);
   router.get('/api/user/access/current', app.jwt,controller.userAccess.getCurrentUser);
@@ -29,8 +32,9 @@ module.exports = app => {
   router.resources('brand', '/api/brand', controller.brand);
   // router.get('/api/brand/search', controller.brand.search);
 
-  // // products
-  // router.resources('products','/api/products', controller.products);
+  // products
+  router.resources('product','/api/product', controller.product);
+  router.delete('/api/product_pic', controller.product.deletePic);
 
   // // contacts
   // router.resources('contacts', '/api/contacts', controller.contacts);

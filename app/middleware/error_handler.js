@@ -5,7 +5,7 @@ module.exports = () => {
       await next();
     } catch (err) {
       ctx.app.emit('error', err, ctx);
-      console.log('err => ' + JSON.stringify(err, null, 4));
+      console.log('err middleware => ' + JSON.stringify(err, null, 4));
 
       const status = err.status || 500;
       const error = status === 500 && ctx.app.config.env === 'prod'

@@ -54,7 +54,8 @@ class UserAccessController extends Controller {
     // Edit Self
     async edit() {
         const { ctx, service } = this;
-        const res =  await service.userAccess.edit();
+        const payload = ctx.request.body || {};
+        const res =  await service.userAccess.edit(payload);
         ctx.helper.success({ ctx, res });
     }
 

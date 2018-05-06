@@ -43,10 +43,10 @@ class UserService extends Service {
     // Index
     async index(payload){
         const { ctx, service } = this;
-        return await ctx.model.User.find({});
+        return await ctx.model.User.find(payload);
     }
 
-    // Remove a user 
+    // Remove a user (optional)
     async removes(payload){
         const { ctx } = this;
         console.log('payload2 => ' + payload);

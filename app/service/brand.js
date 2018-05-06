@@ -63,6 +63,7 @@ class BrandService extends Service {
     // Index brand
     async index(query) {
         const { ctx } = this;
+        // Compose mongodb query
         Object.keys(query).map((key, index) => {
             query[key] = { $regex: new RegExp(query[key], 'i') };
         });
